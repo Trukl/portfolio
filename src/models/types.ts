@@ -29,7 +29,10 @@ export type TProject = {
   features: string[];
   image: string;
   icon?: string;
+  images?: string[];
   links: TLink[];
-  wip?: boolean;
   techs: TTechnology[];
+  wip?: boolean;
+  hidden?: boolean;
+  highlighted?: boolean;
 };

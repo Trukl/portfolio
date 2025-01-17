@@ -12,7 +12,7 @@ type TProjectCardProps = {
 
 export default function ProjectCard({ project }: TProjectCardProps) {
   return (
-    <Card className="overflow-hidden h-full md:basis-1/2">
+    <Card className="overflow-hidden h-full">
       <CardHeader>
         <div className="flex items-center gap-1 justify-center">
           {project.icon ? (
@@ -37,8 +37,8 @@ export default function ProjectCard({ project }: TProjectCardProps) {
         </div>
       </CardHeader>
       <CardContent>
-        <div className="relative h-40 lg:h-48 mb-4 rounded-lg overflow-hidden object-cover">
-          <Image src={project.image} alt={project.title} fill className="bg-white" />
+        <div className="relative h-40 lg:h-48 mb-4 rounded-lg overflow-hidden">
+          <Image src={project.image} alt={project.title} fill className="bg-white object-fill" />
         </div>
         <p className="text-foreground">{project.description}</p>
       </CardContent>

@@ -7,7 +7,7 @@ import Link from 'next/link';
 const NAVIGATION_LINKS = [
   { name: 'Home', href: '/' },
   { name: 'Projets', href: '/projects' },
-  { name: 'À propos de moi', href: '/about' },
+  // { name: 'À propos de moi', href: '/about' },
 ];
 
 export default function Header() {

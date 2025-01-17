@@ -30,6 +30,9 @@ const NotoSans = localFont({
 export const metadata: Metadata = {
   title: 'Corentin Minne',
   description: 'Site personnel de Corentin Minne',
+  appleWebApp: {
+    title: 'Corentin Minne',
+  },
 };
 
 export default function RootLayout({

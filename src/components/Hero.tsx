@@ -33,7 +33,7 @@ export default function Hero() {
           <TabletSmartphone className="inline mb-0.5 mr-1" />
           Mobile
         </Code>
-        toujours à la recherche de nouveaux<Code>🚀 Challenges</Code>.
+        , toujours à la recherche de nouveaux<Code>🚀 Challenges</Code>.
       </p>
       <div className="flex flex-row gap-4 flex-wrap md:justify-start">
         <Button asChild>

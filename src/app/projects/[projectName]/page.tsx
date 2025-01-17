@@ -30,7 +30,15 @@ export default async function Project({ params }: TProjectProps) {
   return (
     <Section className="flex flex-col gap-4 ">
       <div className="flex flex-row items-center gap-4">
-        {project.icon && <Image src={project.icon} alt={project.title} width={80} height={80} />}
+        {project.icon && (
+          <Image
+            src={project.icon}
+            alt={project.title}
+            width={80}
+            height={80}
+            className="rounded"
+          />
+        )}
         <h1 className="text-4xl md:text-5xl font-bold font-signika">
           {project.title}
           {project.wip && (
@@ -65,6 +73,26 @@ export default async function Project({ params }: TProjectProps) {
               ))}
             </ul>
           </div>
+          {project.images && project.images.length > 0 && (
+            <div>
+              <h2 className="text-3xl font-bold mb-4">Visuels</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {project.images.map((screenshot) => (
+                  <Card key={screenshot} className="backdrop-blur-sm mx-8 md:m-0 ">
+                    <CardContent className="p-0 max-w-none">
+                      <Image
+                        src={screenshot}
+                        alt={project.title}
+                        width={900}
+                        height={900}
+                        className="rounded"
+                      />
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          )}
         </section>
         <section className="flex flex-col gap-4">
           <div>

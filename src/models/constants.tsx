@@ -83,6 +83,42 @@ export const PROJECTS: Array<TProject> = [
       },
     ],
     techs: ['REACT_NATIVE', 'EXPO', 'TS', 'FASTIFY', 'ZOD', 'PRISMA'],
+    highlighted: true,
+  },
+  {
+    title: 'DisneyLand Waiting Times',
+    description:
+      "Un site web pour consulter en temps réel les temps d'attente des attractions à Disneyland Paris.",
+    why: /*html*/ `
+    <p>
+      J'ai réalisé ce projet suite à une idée de ma <strong>conjointe</strong>, qui trouvait qu'une application permettant de consulter plus simplement les <strong>temps d'attente</strong> des attractions, par rapport à l'application officielle, serait très pratique.
+    </p>
+    <p>
+      Comme je souhaitais <strong>découvrir React</strong>, j'ai décidé de transformer cette idée en un <strong>premier projet personnel</strong>. Ce projet avait pour objectif de <strong>lui faire plaisir</strong> tout en me permettant d'<strong>apprendre les bases de React</strong>. Il s'agit d'un petit projet que j'ai réalisé <em>rapidement</em>, mais avec beaucoup d'enthousiasme.
+    </p>`,
+    features: [
+      'Récupération des données depuis une API',
+      "Affichage des attractions en fonction de leur état/temps d'attente",
+      "Différents filtres | Tous | Favoris | A-Z | Temps d'attente",
+      'Liste de favoris',
+    ],
+    image: '/disneywaiting.png',
+    icon: '/disneywaiting-icon.png',
+    images: [
+      '/projects/disneywaiting/tous.png',
+      '/projects/disneywaiting/favoris.png',
+      '/projects/disneywaiting/a-z.png',
+      '/projects/disneywaiting/temps.png',
+    ],
+    links: [
+      {
+        name: 'Accéder au site',
+        link: 'https://disney-times.netlify.app/',
+        iconName: 'Globe',
+      },
+    ],
+    techs: ['REACT', 'JS'],
+    highlighted: true,
   },
   {
     title: 'SubTerra II',
@@ -94,6 +130,7 @@ export const PROJECTS: Array<TProject> = [
     links: [],
     techs: ['REACT', 'NEXTJS', 'TAILWIND', 'TS'],
     wip: true,
+    highlighted: true,
   },
   {
     title: 'Shadow Hunters',
@@ -105,5 +142,6 @@ export const PROJECTS: Array<TProject> = [
     links: [],
     techs: ['REACT', 'NEXTJS', 'TAILWIND', 'TS'],
     wip: true,
+    hidden: true,
   },
 ];
