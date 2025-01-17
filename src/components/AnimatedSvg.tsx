@@ -5,7 +5,7 @@ export default function AnimatedSvg() {
     <svg
       viewBox="0 0 200 200"
       xmlns="http://www.w3.org/2000/svg"
-      className="blur-xl absolute max-h-screen w-[70%] translate-x-[25%]">
+      className="blur-xl absolute max-h-screen w-full md:w-[70%] md:translate-x-[25%] translate-y-14 sm:translate-y-14 md:translate-y-7">
       <path
         className="fill-secondary/80"
         d="M65.2,-21.4C72.4,1,57.8,30.3,34.8,46.6C11.9,63,-19.5,66.6,-40.7,52.1C-62,37.6,-73,5.1,-64.5,-19C-56.1,-43.1,-28,-58.9,0.5,-59.1C29,-59.2,57.9,-43.7,65.2,-21.4Z"
