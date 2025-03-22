@@ -21,15 +21,15 @@ export const projects: TProject[] = [
       {
         name: 'Voir le site',
         link: 'https://doggysafe.corentinminne.fr',
-        iconName: 'Globe',
+        iconName: 'ExternalLink',
       },
       {
-        name: 'Application (Android)',
+        name: 'App Android',
         link: 'https://play.google.com/store/apps/details?id=com.doggysafe.app',
         iconName: 'GooglePlay',
       },
       {
-        name: 'Application (iOS)',
+        name: 'App iOS',
         link: 'https://apps.apple.com/cm/app/doggysafe/id6738889872',
         iconName: 'AppStore',
       },
@@ -67,7 +67,12 @@ export const projects: TProject[] = [
       {
         name: 'Accéder au site',
         link: 'https://disney-times.netlify.app/',
-        iconName: 'Globe',
+        iconName: 'ExternalLink',
+      },
+      {
+        name: 'Voir le code',
+        link: 'https://github.com/Trukl/DisneyWaitingTimes',
+        iconName: 'Github',
       },
     ],
     techs: ['REACT', 'JS'],
@@ -98,7 +103,13 @@ export const projects: TProject[] = [
     image: '/images/portfolio.png',
     images: ['/images/projects/portfolio/home.webp', '/images/projects/portfolio/project.webp'],
     icon: '/images/photo.jpeg',
-    links: [],
+    links: [
+      {
+        name: 'Voir le code',
+        link: 'https://github.com/Trukl/portfolio',
+        iconName: 'Github',
+      },
+    ],
     techs: ['REACT', 'VITE', 'TAILWIND', 'TS'],
     slug: 'portfolio',
   },

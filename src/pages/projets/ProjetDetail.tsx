@@ -1,3 +1,4 @@
+import Icon from '@/components/Icon';
 import { Badge } from '@/components/ui/badge';
 import {
   Carousel,
@@ -9,15 +10,7 @@ import {
 import { TProject } from '@/models/types';
 import { getProjectBySlug } from '@/utils/projects';
 import { motion } from 'framer-motion';
-import {
-  CheckSquare,
-  ChevronLeft,
-  Code,
-  ExternalLink,
-  HelpCircle,
-  Image,
-  Link2,
-} from 'lucide-react';
+import { CheckSquare, ChevronLeft, Code, HelpCircle, Image, Link2 } from 'lucide-react';
 import { useRef } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
@@ -56,9 +49,10 @@ const SidebarContent = ({ project }: { project: TProject }) => (
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}>
               <span>{link.name}</span>
-              <ExternalLink
+              <Icon
+                name={link.iconName}
                 size={14}
-                className="ml-2 opacity-70 group-hover:scale-110 transition-all duration-300"
+                className="opacity-70 group-hover:scale-110 transition-all duration-300 shrink-0"
               />
             </motion.a>
           ))}
@@ -134,7 +128,7 @@ export default function ProjectPage() {
                 Pourquoi ce projet ?
               </h2>
               <div
-                className="prose dark:prose-invert prose-lg max-w-none"
+                className="prose dark:prose-invert max-w-none"
                 dangerouslySetInnerHTML={{ __html: project.why }}
               />
             </motion.div>
