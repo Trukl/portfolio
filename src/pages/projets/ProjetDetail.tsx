@@ -135,7 +135,7 @@ export default function ProjectPage() {
           )}
 
           {project.features.length > 0 && (
-            <div className="mb-8">
+            <div>
               <h2 className="text-2xl font-bold mb-4 flex items-center">
                 <span className="w-8 h-8 min-w-8 min-h-8 rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 flex items-center justify-center mr-3">
                   <CheckSquare size={16} className="min-w-[16px] min-h-[16px]" />
