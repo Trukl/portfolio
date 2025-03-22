@@ -1,0 +1,15 @@
+---
+description: How use Shadcn/UI to add styles to our applications
+globs: *.tsx, *.ts
+alwaysApply: false
+---
+
+## Context
+
+- We use also Aceternity UI to style our application for modern and elegant components with animations.
+
+## Rules
+
+- You must use Aceternity UI for elegant components, for a landing page for exemple
+- You must use Tailwind CSS for styling.
+- You must install any AceternityUI missing component with `pnpm dlx shadcn@latest add https://ui.aceternity.com/registry/<component-name>.json`

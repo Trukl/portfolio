@@ -1,15 +1,16 @@
 import { icons } from 'lucide-react';
 
-export type TTechnology =
+export type TTechType =
   | 'REACT'
-  | 'NEXTJS'
-  | 'TAILWIND'
-  | 'JS'
-  | 'TS'
   | 'REACT_NATIVE'
+  | 'NEXTJS'
+  | 'VITE'
+  | 'TS'
+  | 'JS'
+  | 'TAILWIND'
+  | 'EXPO'
   | 'FASTIFY'
   | 'ZOD'
-  | 'EXPO'
   | 'PRISMA';
 
 export type TCustomIconName = 'AppStore' | 'GooglePlay';
@@ -31,8 +32,9 @@ export type TProject = {
   icon?: string;
   images?: string[];
   links: TLink[];
-  techs: TTechnology[];
+  techs: TTechType[];
+  highlighted?: boolean;
   wip?: boolean;
   hidden?: boolean;
-  highlighted?: boolean;
+  slug?: string;
 };
