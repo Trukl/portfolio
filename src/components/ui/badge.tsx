@@ -46,6 +46,10 @@ const techColors: Record<TTechType, { bg: string; text: string }> = {
     bg: 'bg-purple-100 dark:bg-purple-900/30',
     text: 'text-purple-700 dark:text-purple-300',
   },
+  SOCKETIO: {
+    bg: 'bg-green-100 dark:bg-green-900/30',
+    text: 'text-green-700 dark:text-green-300',
+  },
 };
 
 const techLabels: Record<TTechType, string> = {
@@ -60,6 +64,7 @@ const techLabels: Record<TTechType, string> = {
   ZOD: 'Zod',
   PRISMA: 'Prisma',
   VITE: 'Vite',
+  SOCKETIO: 'Socket.io',
 };
 
 export interface BadgeProps {

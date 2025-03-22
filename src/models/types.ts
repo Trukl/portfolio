@@ -10,6 +10,7 @@ export type TTechType =
   | 'TAILWIND'
   | 'EXPO'
   | 'FASTIFY'
+  | 'SOCKETIO'
   | 'ZOD'
   | 'PRISMA';
 

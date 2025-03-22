@@ -6,9 +6,18 @@ export const projects: TProject[] = [
     description:
       "Application mobile à destination des propriétaires de chiens afin d'être alerté des potentiels dangers autour de moi.",
     why: /*html*/ `
-    Ayant moi même <strong>2 chiens</strong>, j'ai appris que les chiens peuvent être exposés à des <strong>dangers</strong> que l'on ne connaît pas ou peu en tant qu'humains.<br />
-    Par exemple, dans les étendus d'eau comme les lacs, rivières... il peut y avoir des bactéries appelées <strong>"cyanobactéries"</strong> qui sont extrêmement dangereuses, voire mortelles, pour les chiens.<br />
-    Ne trouvant pas de solution adaptée, j'ai donc voulu créer une application qui permettrait aux propriétaires de chiens d'être alertés sur ce genre de dangers, de les localiser et également de les signaler.`,
+    <div>
+      <p>
+        Ayant moi même <strong>2 chiens</strong>, j'ai appris que les chiens peuvent être exposés à des <strong>dangers</strong> que l'on ne connaît pas ou peu en tant qu'humains.
+      </p>
+      <p>
+        Par exemple, dans les étendus d'eau comme les lacs, rivières... il peut y avoir des bactéries appelées <strong>"cyanobactéries"</strong> qui sont extrêmement dangereuses, voire mortelles, pour les chiens.
+      </p>
+      <p>
+        Ne trouvant pas de solution adaptée, j'ai donc voulu créer une application qui permettrait aux propriétaires de chiens d'être alertés sur ce genre de dangers, de les localiser et également de les signaler.
+      </p>
+    </div>
+    `,
     features: [
       'Connexion/Inscription',
       'Carte interactive pour localiser les dangers',
@@ -43,12 +52,15 @@ export const projects: TProject[] = [
     description:
       "Un site web pour consulter en temps réel les temps d'attente des attractions à Disneyland Paris.",
     why: /*html*/ `
-    <p>
-      J'ai réalisé ce projet suite à une idée de ma <strong>conjointe</strong>, qui trouvait qu'une application permettant de consulter plus simplement les <strong>temps d'attente</strong> des attractions, par rapport à l'application officielle, serait très pratique.
-    </p>
-    <p>
-      Comme je souhaitais <strong>découvrir React</strong>, j'ai décidé de transformer cette idée en un <strong>premier projet personnel</strong>. Ce projet avait pour objectif de <strong>lui faire plaisir</strong> tout en me permettant d'<strong>apprendre les bases de React</strong>. Il s'agit d'un petit projet que j'ai réalisé <em>rapidement</em>, mais avec beaucoup d'enthousiasme.
-    </p>`,
+    <div>
+      <p>
+        J'ai réalisé ce projet suite à une idée de ma <strong>conjointe</strong>, qui trouvait qu'une application permettant de consulter plus simplement les <strong>temps d'attente</strong> des attractions, par rapport à l'application officielle, serait très pratique.
+      </p>
+      <p>
+        Comme je souhaitais <strong>découvrir React</strong>, j'ai décidé de transformer cette idée en un <strong>premier projet personnel</strong>. Ce projet avait pour objectif de <strong>lui faire plaisir</strong> tout en me permettant d'<strong>apprendre les bases de React</strong>. Il s'agit d'un petit projet que j'ai réalisé <em>rapidement</em>, mais avec beaucoup d'enthousiasme.
+      </p>
+    </div>
+    `,
     features: [
       'Récupération des données depuis une API',
       "Affichage des attractions en fonction de leur état/temps d'attente",
@@ -83,11 +95,21 @@ export const projects: TProject[] = [
     title: 'SubTerra II',
     description:
       'Reproduction du jeu de société SubTerra II afin de pouvoir y jouer entre amis à distance.',
-    why: '',
-    features: [],
+    why: /*html*/ `
+    <div>
+      <p>
+        J'ai créé ce projet avant tout pour pouvoir jouer à <strong>SubTerra II</strong> avec mes amis, sans avoir à organiser une soirée en physique. Comme certains habitent loin, il n'était pas toujours facile de se réunir. Avec cette version, on peut jouer ensemble plus facilement, peu importe où l'on se trouve.
+      </p>
+      <p>
+        En plus de l'aspect pratique, ce projet représentait aussi un nouveau <strong>challenge</strong> pour moi. Reproduire un jeu de société complexe, avec la gestion des rôles et des mécaniques de jeu, était une belle opportunité pour apprendre et progresser en développement.
+      </p>
+    </div>
+    `,
+    features: ['Création de parties', 'Gestion des rôles', 'Gestion des règles du jeu'],
     image: '/images/subterra2.png',
+    images: ['/images/projects/subterra/game.png'],
     links: [],
-    techs: ['REACT', 'NEXTJS', 'TAILWIND', 'TS'],
+    techs: ['FASTIFY', 'PRISMA', 'SOCKETIO', 'REACT', 'TS', 'NEXTJS', 'TAILWIND'],
     wip: true,
     highlighted: true,
     slug: 'subterra2',
@@ -96,9 +118,12 @@ export const projects: TProject[] = [
     title: 'Mon portfolio',
     description: 'Mon portfolio personnel présentant mes projets.',
     why: /*html*/ `
-    <p>
-      J'ai créé ce portfolio pour présenter mes projets et mes compétences.
-    </p>`,
+    <div>
+      <p>
+        J'ai créé ce portfolio pour présenter mes projets et mes compétences.
+      </p>
+    </div>
+    `,
     features: ['Responsive', 'Animations', 'Dark mode', 'Animations'],
     image: '/images/portfolio.png',
     images: ['/images/projects/portfolio/home.webp', '/images/projects/portfolio/project.webp'],
