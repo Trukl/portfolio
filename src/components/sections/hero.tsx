@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 // Badge component
 function Badge({ label, icon }: { label: string; icon: string }) {
   return (
-    <div className="inline-flex items-center gap-1 px-2 py-1 mx-0.5 rounded-md bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
+    <div className="leading-tight inline-flex items-center gap-1 px-2 py-1 mx-0.5 rounded-md bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
       <span className="text-base">{icon}</span>
       <span className="font-medium">{label}</span>
     </div>
@@ -36,7 +36,7 @@ export function Hero() {
         </motion.h1>
 
         <motion.div
-          className="text-center items-center justify-center gap-2 mb-8 max-w-3xl text-lg"
+          className="text-center items-center justify-center gap-2 mb-8 max-w-3xl text-lg leading-10"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}>
@@ -46,7 +46,7 @@ export function Hero() {
           <Badge label="Web" icon="🖥️" />
           et
           <Badge label="Mobile" icon="📱" />
-          , toujours à la recherche de nouveaux
+          toujours à la recherche de nouveaux
           <Badge label="Challenges" icon="🚀" />.
         </motion.div>
 
