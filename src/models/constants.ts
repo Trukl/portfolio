@@ -4,7 +4,7 @@ export const projects: TProject[] = [
   {
     title: 'DoggySafe',
     description:
-      "Application mobile à destination des propriétaires de chiens afin d'être alerté des potentiels dangers autour de moi.",
+      "Application mobile à destination des propriétaires de chiens afin d'être alerté des potentiels dangers autour de soit.",
     why: /*html*/ `
     <div>
       <p>
