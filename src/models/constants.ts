@@ -48,6 +48,59 @@ export const projects: TProject[] = [
     slug: 'doggysafe',
   },
   {
+    title: 'CrochEase',
+    description:
+      'Application mobile pour créer, suivre et partager des modèles de crochet facilement',
+    why: /*html*/ `
+      <div>
+        <p>
+          Ma <strong>conjointe</strong> avait l'habitude de noter sur des cahiers toutes les étapes de réalisation d'un modèle de crochet lorsqu'elle en faisait un. C'était une méthode assez basique, mais elle n'était ni pratique ni vraiment agréable. En plus, cela devenait répétitif à force.
+        </p>
+        <p>
+          Après avoir cherché une application simple et sympa pour gérer tout ça, je me suis rendu compte qu'il n'en existait pas vraiment. Alors, j'ai décidé de créer <strong>CrochEase</strong> : une application mobile qui permet de créer et de suivre ses modèles de crochet facilement, tout en permettant de les partager.
+        </p>
+        <p>
+        Cela crée un peu "le réseau social du crochet", où les passionnés peuvent se connecter, échanger et découvrir de nouvelles créations !
+        </p>
+      </div>
+      `,
+    features: [
+      'Création et gestion de modèles de crochet',
+      'Favoris pour les modèles préférés',
+      'Suivi de la progression des étapes',
+      'Partage des modèles',
+    ],
+    image: '/images/crochease.png',
+    links: [],
+    techs: ['REACT_NATIVE', 'EXPO', 'TS', 'FASTIFY', 'ZOD', 'PRISMA'],
+    wip: true,
+    highlighted: true,
+    slug: 'crochease',
+  },
+  {
+    title: 'SubTerra II',
+    description:
+      'Reproduction du jeu de société SubTerra II afin de pouvoir y jouer entre amis à distance.',
+    why: /*html*/ `
+    <div>
+      <p>
+        J'ai créé ce projet avant tout pour pouvoir jouer à <strong>SubTerra II</strong> avec mes amis, sans avoir à organiser une soirée en physique. Comme certains habitent loin, il n'était pas toujours facile de se réunir. Avec cette version, on peut jouer ensemble plus facilement, peu importe où l'on se trouve.
+      </p>
+      <p>
+        En plus de l'aspect pratique, ce projet représentait aussi un nouveau <strong>challenge</strong> pour moi. Reproduire un jeu de société complexe, avec la gestion des rôles et des mécaniques de jeu, était une belle opportunité pour apprendre et progresser en développement.
+      </p>
+    </div>
+    `,
+    features: ['Création de parties', 'Gestion des rôles', 'Gestion des règles du jeu'],
+    image: '/images/subterra2.png',
+    images: ['/images/projects/subterra/game.png'],
+    links: [],
+    techs: ['FASTIFY', 'PRISMA', 'SOCKETIO', 'REACT', 'TS', 'NEXTJS', 'TAILWIND'],
+    wip: true,
+    highlighted: true,
+    slug: 'subterra2',
+  },
+  {
     title: 'DisneyLand Waiting Times',
     description:
       "Un site web pour consulter en temps réel les temps d'attente des attractions à Disneyland Paris.",
@@ -90,29 +143,6 @@ export const projects: TProject[] = [
     techs: ['REACT', 'JS'],
     highlighted: true,
     slug: 'disneywaiting',
-  },
-  {
-    title: 'SubTerra II',
-    description:
-      'Reproduction du jeu de société SubTerra II afin de pouvoir y jouer entre amis à distance.',
-    why: /*html*/ `
-    <div>
-      <p>
-        J'ai créé ce projet avant tout pour pouvoir jouer à <strong>SubTerra II</strong> avec mes amis, sans avoir à organiser une soirée en physique. Comme certains habitent loin, il n'était pas toujours facile de se réunir. Avec cette version, on peut jouer ensemble plus facilement, peu importe où l'on se trouve.
-      </p>
-      <p>
-        En plus de l'aspect pratique, ce projet représentait aussi un nouveau <strong>challenge</strong> pour moi. Reproduire un jeu de société complexe, avec la gestion des rôles et des mécaniques de jeu, était une belle opportunité pour apprendre et progresser en développement.
-      </p>
-    </div>
-    `,
-    features: ['Création de parties', 'Gestion des rôles', 'Gestion des règles du jeu'],
-    image: '/images/subterra2.png',
-    images: ['/images/projects/subterra/game.png'],
-    links: [],
-    techs: ['FASTIFY', 'PRISMA', 'SOCKETIO', 'REACT', 'TS', 'NEXTJS', 'TAILWIND'],
-    wip: true,
-    highlighted: true,
-    slug: 'subterra2',
   },
   {
     title: 'Mon portfolio',

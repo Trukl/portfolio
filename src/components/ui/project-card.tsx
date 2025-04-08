@@ -30,7 +30,7 @@ export function ProjectCard({
   contentClassName,
 }: ProjectCardProps) {
   return (
-    <div className={cn('h-full w-full block', className)}>
+    <div className={cn('h-full w-full block select-none', className)}>
       <div className="bg-white dark:bg-neutral-900 rounded-xl shadow-lg overflow-hidden border border-neutral-200 dark:border-neutral-800 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full flex flex-col">
         <Link to={link} className="block">
           <div
@@ -57,7 +57,7 @@ export function ProjectCard({
           <div className="flex items-center mb-3">
             {icon && !image && <img src={icon} alt="" className="w-6 h-6 mr-2" />}
             <h3 className="text-xl font-bold text-neutral-800 dark:text-white">
-              {title}
+              <span className="select-text">{title}</span>
               {wip && (
                 <span className="ml-2 text-xs bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300 py-0.5 px-2 rounded-full">
                   En cours
