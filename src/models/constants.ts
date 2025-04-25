@@ -48,7 +48,7 @@ export const projects: TProject[] = [
     slug: 'doggysafe',
   },
   {
-    title: 'CrochEase',
+    title: 'MyCrochet',
     description:
       'Application mobile pour créer, suivre et partager des modèles de crochet facilement',
     why: /*html*/ `
@@ -57,7 +57,7 @@ export const projects: TProject[] = [
           Ma <strong>conjointe</strong> avait l'habitude de noter sur des cahiers toutes les étapes de réalisation d'un modèle de crochet lorsqu'elle en faisait un. C'était une méthode assez basique, mais elle n'était ni pratique ni vraiment agréable. En plus, cela devenait répétitif à force.
         </p>
         <p>
-          Après avoir cherché une application simple et sympa pour gérer tout ça, je me suis rendu compte qu'il n'en existait pas vraiment. Alors, j'ai décidé de créer <strong>CrochEase</strong> : une application mobile qui permet de créer et de suivre ses modèles de crochet facilement, tout en permettant de les partager.
+          Après avoir cherché une application simple et sympa pour gérer tout ça, je me suis rendu compte qu'il n'en existait pas vraiment. Alors, j'ai décidé de créer <strong>MyCrochet</strong> : une application mobile qui permet de créer et de suivre ses modèles de crochet facilement, tout en permettant de les partager.
         </p>
         <p>
         Cela crée un peu "le réseau social du crochet", où les passionnés peuvent se connecter, échanger et découvrir de nouvelles créations !
@@ -70,12 +70,30 @@ export const projects: TProject[] = [
       'Suivi de la progression des étapes',
       'Partage des modèles',
     ],
-    image: '/images/crochease.png',
-    links: [],
+    image: '/images/mycrochet.png',
+    images: [
+      '/images/projects/mycrochet/image_1.webp',
+      '/images/projects/mycrochet/image_2.webp',
+      '/images/projects/mycrochet/image_3.webp',
+      '/images/projects/mycrochet/image_4.webp',
+      '/images/projects/mycrochet/image_5.webp',
+    ],
+    links: [
+      {
+        name: 'Voir le site',
+        link: 'https://mycrochet.corentinminne.fr',
+        iconName: 'ExternalLink',
+      },
+      {
+        name: 'Instagram',
+        link: 'https://www.instagram.com/mycrochet_app/',
+        iconName: 'Instagram',
+      },
+    ],
     techs: ['REACT_NATIVE', 'EXPO', 'TS', 'FASTIFY', 'ZOD', 'PRISMA'],
     wip: true,
     highlighted: true,
-    slug: 'crochease',
+    slug: 'mycrochet',
   },
   {
     title: 'SubTerra II',

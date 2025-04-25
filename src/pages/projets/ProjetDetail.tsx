@@ -9,10 +9,13 @@ import {
 } from '@/components/ui/carousel';
 import { TProject } from '@/models/types';
 import { getProjectBySlug } from '@/utils/projects';
+import { FastAverageColor } from 'fast-average-color';
 import { motion } from 'framer-motion';
 import { CheckSquare, ChevronLeft, Code, HelpCircle, Image, Link2 } from 'lucide-react';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+
+const fac = new FastAverageColor();
 
 const SidebarContent = ({ project }: { project: TProject }) => (
   <>
@@ -199,16 +202,7 @@ export default function ProjectPage() {
               <CarouselContent>
                 {carouselItems.map((image, index) => (
                   <CarouselItem key={index}>
-                    <div className="p-1 h-[500px] relative overflow-hidden rounded-xl">
-                      <img
-                        src={image}
-                        alt={`${project.title} - Image ${index + 1}`}
-                        className="w-full h-full object-cover rounded-xl shadow-lg transition-transform hover:scale-105 overflow-hidden"
-                      />
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white text-xs font-medium">
-                        {project.title} - Image {index + 1}
-                      </div>
-                    </div>
+                    <ImageContainer image={image} title={project.title} index={index} />
                   </CarouselItem>
                 ))}
               </CarouselContent>
@@ -221,3 +215,38 @@ export default function ProjectPage() {
     </div>
   );
 }
+
+const ImageContainer = ({
+  image,
+  title,
+  index,
+}: {
+  image: string;
+  title: string;
+  index: number;
+}) => {
+  const [backgroundColor, setBackgroundColor] = useState<string | null>(null);
+
+  const getBackgroundColor = async (e: React.SyntheticEvent<HTMLImageElement>) => {
+    const color = await fac.getColorAsync(e.currentTarget);
+    setBackgroundColor(color.hex);
+  };
+
+  return (
+    <div
+      className="p-1 h-[500px] relative overflow-hidden rounded-xl"
+      style={{
+        backgroundColor: backgroundColor || '#f0f0f0',
+      }}>
+      <img
+        onLoad={getBackgroundColor}
+        src={image}
+        alt={`${title} - Image ${index + 1}`}
+        className="w-full h-full object-contain rounded-xl shadow-lg transition-transform hover:scale-105 overflow-hidden"
+      />
+      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white text-xs font-medium">
+        {title} - Image {index + 1}
+      </div>
+    </div>
+  );
+};
