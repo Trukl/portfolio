@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Mail as MailIcon } from 'lucide-react';
+import { Gamepad2, Mail as MailIcon } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 // Badge component
@@ -51,7 +51,7 @@ export function Hero() {
         </motion.div>
 
         <motion.div
-          className="flex flex-wrap gap-4 justify-center mb-16"
+          className="flex flex-wrap gap-4 justify-center mb-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}>
@@ -73,6 +73,25 @@ export function Hero() {
             className="bg-white dark:bg-neutral-800 text-neutral-800 dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-700 border border-neutral-200 dark:border-neutral-700 px-6 py-3 rounded-lg flex items-center gap-2 transition-colors">
             <span>Github</span>
           </Link>
+        </motion.div>
+
+        <motion.div
+          className="flex flex-col items-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.55 }}>
+          <Link
+            to="/monde"
+            className="group relative inline-flex items-center gap-3 overflow-hidden rounded-lg border-2 border-emerald-700 bg-emerald-600 px-8 py-4 text-white shadow-[0_4px_0_0_rgb(6,78,59)] transition-all hover:bg-emerald-500 hover:shadow-[0_2px_0_0_rgb(6,78,59)] hover:translate-y-0.5 active:translate-y-1 active:shadow-none dark:border-emerald-800 dark:bg-emerald-700 dark:hover:bg-emerald-600">
+            <Gamepad2 size={22} />
+            <span className="text-lg font-bold tracking-wide">Entrer dans le monde</span>
+            <span className="ml-1 rounded bg-emerald-900/40 px-2 py-0.5 text-xs font-semibold uppercase tracking-wider">
+              Bêta
+            </span>
+          </Link>
+          <p className="mt-3 text-sm text-neutral-500 dark:text-neutral-400">
+            Visite mon portfolio façon Minecraft 🎮 (clavier + souris recommandés)
+          </p>
         </motion.div>
       </div>
     </section>
