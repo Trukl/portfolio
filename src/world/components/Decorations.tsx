@@ -141,19 +141,22 @@ function ProjectBanner({
 }
 
 /**
- * Sign panel floating just above a 2-block wooden post. Group origin is at
- * the top of the post (pos = [cx, groundY+2, cz] from buildSign).
+ * Sign plate mounted on the +Z face of a 1-block wooden post — the player
+ * approaches from spawn (high z, looking -z) and reads the plate face-on.
+ * Group origin is at the grass top under the post (pos = [cx, groundY+1, cz]).
  */
 function SignText({ pos, text }: { pos: [number, number, number]; text: string }) {
   return (
-    <group position={[pos[0] + 0.5, pos[1] + 1.0, pos[2] + 0.5]}>
-      <mesh castShadow receiveShadow>
-        <boxGeometry args={[1.4, 0.7, 0.08]} />
+    <group position={[pos[0] + 0.5, pos[1], pos[2] + 0.5]}>
+      {/* Plate sticking out the +Z face of the post, centered vertically on it */}
+      <mesh position={[0, 0.55, 0.55]} castShadow receiveShadow>
+        <boxGeometry args={[1.4, 0.65, 0.06]} />
         <meshStandardMaterial color="#f1e5c6" />
       </mesh>
-      <group position={[0, 0, 0.05]}>
+      {/* Decorative bars suggesting text */}
+      <group position={[0, 0.55, 0.59]}>
         {Array.from({ length: Math.min(text.length, 8) }).map((_, i) => (
-          <mesh key={i} position={[-0.5 + i * 0.13, 0, 0]}>
+          <mesh key={i} position={[-0.45 + i * 0.13, 0, 0]}>
             <planeGeometry args={[0.08, 0.18]} />
             <meshStandardMaterial color="#3a2a1a" />
           </mesh>

@@ -140,15 +140,16 @@ export function buildOverworld(): TBuiltScene {
     decorations.push({ kind: 'npc', pos, topic: 'contact' });
   }
 
-  // Welcome sign at the spawn
+  // Welcome sign on the path between spawn (z=10) and the plaza, so the
+  // player reads the +Z face of the plate as soon as they spawn.
   {
-    const { pos } = buildSign(grid, 0, 11, GROUND_Y);
+    const { pos } = buildSign(grid, 0, 8, GROUND_Y);
     const text =
       "Bienvenue dans mon monde ! Visite les maisons (expériences), ouvre les coffres (compétences), parle aux villageois (à propos / contact). Le portail violet mène à mes projets perso.";
     interactables.push({
       id: 'sign-welcome',
       pos,
-      radius: 1.6,
+      radius: 2.2,
       label: 'Lire le panneau',
       payload: { kind: 'sign', title: 'Bienvenue', text },
     });

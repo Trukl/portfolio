@@ -27,6 +27,7 @@ export type TBlockDef = {
   emissiveIntensity?: number;
   transparent?: boolean;
   opacity?: number;
+  depthWrite?: boolean;
   solid: boolean;
 };
 
@@ -39,9 +40,15 @@ export const BLOCKS: Record<TBlockId, TBlockDef> = {
   planks_oak: { color: '#c3955b', solid: true },
   leaves: { color: '#3f8b2a', solid: true },
   cobble: { color: '#6b6b6b', solid: true },
-  glass: { color: '#bce4ff', transparent: true, opacity: 0.35, solid: false },
+  glass: {
+    color: '#bce4ff',
+    transparent: true,
+    opacity: 0.45,
+    depthWrite: false,
+    solid: false,
+  },
   sand: { color: '#e8d9a0', solid: true },
-  water: { color: '#3b82c4', transparent: true, opacity: 0.6, solid: false },
+  water: { color: '#3b82c4', transparent: true, opacity: 0.6, depthWrite: false, solid: false },
   path: { color: '#a07c4b', solid: true },
   netherrack: { color: '#6e1f1c', solid: true },
   soul_sand: { color: '#604031', solid: true },
@@ -53,6 +60,7 @@ export const BLOCKS: Record<TBlockId, TBlockDef> = {
     emissiveIntensity: 1.4,
     transparent: true,
     opacity: 0.75,
+    depthWrite: false,
     solid: false,
   },
   lava: { color: '#ff6a1a', emissive: '#ff8a1a', emissiveIntensity: 1.0, solid: true },

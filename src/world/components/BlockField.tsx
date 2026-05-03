@@ -18,6 +18,7 @@ function useMaterial(id: TBlockId) {
       emissiveIntensity: def.emissiveIntensity ?? 0,
       transparent: def.transparent ?? false,
       opacity: def.opacity ?? 1,
+      depthWrite: def.depthWrite ?? !def.transparent,
       roughness: 0.85,
       metalness: 0,
     });

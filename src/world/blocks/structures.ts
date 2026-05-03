@@ -209,8 +209,9 @@ export function buildChest(
 }
 
 /**
- * Sign: a 2-block wooden post. The SignText decoration renders a
- * readable panel just above the post.
+ * Sign: a single wooden post block. The SignText decoration mounts a
+ * readable plate on the +Z face of the post (facing the spawn).
+ * Returns the post block position so the panel sits flush on it.
  */
 export function buildSign(
   grid: BlockGrid,
@@ -219,8 +220,7 @@ export function buildSign(
   groundY: number
 ): { pos: Vec3 } {
   grid.set(cx, groundY + 1, cz, 'wood_oak');
-  grid.set(cx, groundY + 2, cz, 'wood_oak');
-  return { pos: [cx, groundY + 2, cz] };
+  return { pos: [cx, groundY + 1, cz] };
 }
 
 /**

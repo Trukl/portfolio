@@ -24,12 +24,10 @@ export function Player({ grid, spawn, interactables }: Props) {
   const [, getKeys] = useKeyboardControls<TActionKey>();
   const velocityY = useRef(0);
   const grounded = useRef(false);
-  const interactPressed = useRef(false);
 
-  const paused = useWorldStore((s) => s.paused);
   const isTransitioning = useWorldStore((s) => s.isTransitioning);
   const setActive = useWorldStore((s) => s.setActive);
-  const openModal = useWorldStore((s) => s.openModal);
+  const triggerPortal = useWorldStore((s) => s.triggerPortalAction);
   const spawnRequest = useWorldStore((s) => s.spawnRequest);
 
   const forwardVec = useRef(new THREE.Vector3());
@@ -42,22 +40,11 @@ export function Player({ grid, spawn, interactables }: Props) {
     velocityY.current = 0;
   }, [camera, spawn, spawnRequest]);
 
-  // Listen for E key (one-shot via subscription to avoid repeats)
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.code !== 'KeyE') return;
-      if (e.repeat) return;
-      interactPressed.current = true;
-    };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, []);
-
   useFrame((_, dt) => {
     const clampedDt = Math.min(dt, 0.05);
 
-    // Pause / transition: freeze movement input but still apply gravity for stability
-    if (!paused && !isTransitioning) {
+    // Transition: freeze movement input but still apply gravity for stability
+    if (!isTransitioning) {
       const state = getKeys();
       const moveX = (state.right ? 1 : 0) - (state.left ? 1 : 0);
       const moveZ = (state.back ? 1 : 0) - (state.forward ? 1 : 0);
@@ -142,20 +129,12 @@ export function Player({ grid, spawn, interactables }: Props) {
     }
     setActive(nearest ? nearest.payload : null);
 
-    // Trigger interaction
-    if (interactPressed.current) {
-      interactPressed.current = false;
-      if (nearest && !paused && !isTransitioning) {
-        openModal(nearest.payload);
-      }
-    }
-
-    // Auto-trigger portal: if player walks into a portal trigger, fire after a short approach
-    if (nearest && nearest.payload.kind === 'portal' && !paused && !isTransitioning) {
+    // Auto-trigger portal: walking into the frame fires the transition.
+    if (nearest && nearest.payload.kind === 'portal' && !isTransitioning) {
       const dx = nearest.pos[0] + 0.5 - eye.x;
       const dz = nearest.pos[2] + 0.5 - eye.z;
       if (Math.sqrt(dx * dx + dz * dz) < 0.7) {
-        openModal(nearest.payload);
+        triggerPortal(nearest.payload);
       }
     }
 

@@ -1,14 +1,10 @@
 import { LogOut } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { useWorldStore } from '../state/worldStore';
 
 export function ExitButton() {
   const navigate = useNavigate();
-  const closeModal = useWorldStore((s) => s.closeModal);
 
   const handleExit = () => {
-    closeModal();
-    // Release pointer lock if active
     if (document.pointerLockElement) document.exitPointerLock();
     navigate('/');
   };
