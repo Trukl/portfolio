@@ -3,7 +3,7 @@ import { useFrame, useThree } from '@react-three/fiber';
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import type { TActionKey } from '../controls/keymap';
-import { isOnGround, moveAxis, PLAYER_EYE } from '../physics/aabb';
+import { isOnGround, moveAxis } from '../physics/aabb';
 import type { BlockGrid, Vec3 } from '../physics/blockGrid';
 import { useWorldStore } from '../state/worldStore';
 import type { TInteractable } from '../data/layout';
@@ -159,8 +159,7 @@ export function Player({ grid, spawn, interactables }: Props) {
       }
     }
 
-    // Camera y is the eye position (we keep PLAYER_EYE for spawn doc).
-    void PLAYER_EYE;
+    // Camera y is the eye position (feet at y - 1.62 via aabb.ts).
   });
 
   return <PointerLockControls makeDefault />;

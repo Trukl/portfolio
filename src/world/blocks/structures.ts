@@ -196,19 +196,22 @@ export function buildPortal(
 }
 
 /**
- * A small chest-shaped feature at (cx, cz) on top of given groundY.
- * Returns the world position of the chest top center.
+ * Chest interaction point — visual is fully rendered by the Decorations layer
+ * (no block placed here so the body+lid mesh sits flush on the ground).
  */
 export function buildChest(
-  grid: BlockGrid,
+  _grid: BlockGrid,
   cx: number,
   cz: number,
   groundY: number
 ): { pos: Vec3 } {
-  grid.set(cx, groundY + 1, cz, 'wood_dark');
-  return { pos: [cx, groundY + 2, cz] };
+  return { pos: [cx, groundY + 1, cz] };
 }
 
+/**
+ * Sign: a 2-block wooden post. The SignText decoration renders a
+ * readable panel just above the post.
+ */
 export function buildSign(
   grid: BlockGrid,
   cx: number,
@@ -216,20 +219,21 @@ export function buildSign(
   groundY: number
 ): { pos: Vec3 } {
   grid.set(cx, groundY + 1, cz, 'wood_oak');
-  grid.set(cx, groundY + 2, cz, 'planks_oak');
+  grid.set(cx, groundY + 2, cz, 'wood_oak');
   return { pos: [cx, groundY + 2, cz] };
 }
 
+/**
+ * NPC stand — purely an interaction point. The villager mesh stands
+ * directly on the grass via the Decorations layer.
+ */
 export function buildNpc(
-  grid: BlockGrid,
+  _grid: BlockGrid,
   cx: number,
   cz: number,
   groundY: number
 ): { pos: Vec3 } {
-  // A simple "villager" stand: dirt + wool head — visual is added in component
-  grid.set(cx, groundY + 1, cz, 'wood_dark');
-  grid.set(cx, groundY + 2, cz, 'sand');
-  return { pos: [cx, groundY + 2, cz] };
+  return { pos: [cx, groundY + 1, cz] };
 }
 
 /**

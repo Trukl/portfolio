@@ -170,7 +170,7 @@ export function buildOverworld(): TBuiltScene {
     for (let z = -4; z >= -12; z--) grid.set(0, GROUND_Y, z, 'path');
   }
 
-  return { grid, interactables, spawn: [0, GROUND_Y + 1.9, 10], decorations };
+  return { grid, interactables, spawn: [0, GROUND_Y + 2.62, 10], decorations };
 }
 
 // ---------------- NETHER ----------------
@@ -235,7 +235,7 @@ export function buildNether(): TBuiltScene {
     decorations.push({ kind: 'project-banner', pos, projectSlug: proj.slug ?? '' });
   });
 
-  return { grid, interactables, spawn: [0, GROUND_Y + 1.9, 9], decorations };
+  return { grid, interactables, spawn: [0, GROUND_Y + 2.62, 9], decorations };
 }
 
 // ---------------- helpers ----------------

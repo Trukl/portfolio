@@ -59,9 +59,9 @@ export default function WorldRoot() {
     <div className="fixed inset-0 z-0 overflow-hidden bg-black">
       <KeyboardControls map={KEY_MAP}>
         <Canvas
-          shadows={false}
+          shadows="soft"
           dpr={[1, 1.5]}
-          camera={{ fov: 75, near: 0.1, far: 200, position: [0, 1.9, 10] }}>
+          camera={{ fov: 75, near: 0.1, far: 200, position: [0, 2.62, 10] }}>
           {biome === 'overworld' ? <OverworldScene /> : <NetherScene />}
         </Canvas>
       </KeyboardControls>

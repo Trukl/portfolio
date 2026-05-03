@@ -27,6 +27,7 @@ function useMaterial(id: TBlockId) {
 function InstancedBlocks({ id, positions }: { id: TBlockId; positions: Vec3[] }) {
   const ref = useRef<THREE.InstancedMesh>(null);
   const material = useMaterial(id);
+  const isTransparent = BLOCKS[id].transparent === true;
 
   useEffect(() => {
     if (!ref.current) return;
@@ -36,6 +37,13 @@ function InstancedBlocks({ id, positions }: { id: TBlockId; positions: Vec3[] })
       ref.current!.setMatrixAt(i, m);
     });
     ref.current.instanceMatrix.needsUpdate = true;
+    // The default per-instance frustum culling on InstancedMesh uses the
+    // geometry's bounding sphere transformed by the mesh's world matrix —
+    // since the geometry is a unit cube at origin and our instances are
+    // spread across the world, three culls the whole mesh whenever the
+    // origin is off-screen. Disabling per-mesh culling fixes that and is
+    // cheap at our scale (~5k blocks total).
+    ref.current.frustumCulled = false;
   }, [positions]);
 
   if (!positions.length) return null;
@@ -43,8 +51,8 @@ function InstancedBlocks({ id, positions }: { id: TBlockId; positions: Vec3[] })
     <instancedMesh
       ref={ref}
       args={[BOX, material, positions.length]}
-      castShadow={false}
-      receiveShadow={false}
+      castShadow={!isTransparent}
+      receiveShadow
     />
   );
 }

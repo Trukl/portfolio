@@ -2,15 +2,20 @@ import { BlockGrid } from './blockGrid';
 
 export type Box = { min: [number, number, number]; max: [number, number, number] };
 
-export const PLAYER_HALF = { x: 0.3, y: 0.9, z: 0.3 };
-export const PLAYER_EYE = 1.6;
+// Player AABB is asymmetric around the camera (which is the eye):
+//   feet at  py - EYE_FROM_FEET
+//   head at  py + HEAD_ABOVE_EYE
+// Total height = 1.8 blocks (Minecraft-like proportions).
+export const PLAYER_HALF_XZ = 0.3;
+export const EYE_FROM_FEET = 1.62;
+export const HEAD_ABOVE_EYE = 0.18;
 
 const EPS = 1e-3;
 
 function playerBox(px: number, py: number, pz: number): Box {
   return {
-    min: [px - PLAYER_HALF.x, py - PLAYER_HALF.y, pz - PLAYER_HALF.z],
-    max: [px + PLAYER_HALF.x, py + PLAYER_HALF.y, pz + PLAYER_HALF.z],
+    min: [px - PLAYER_HALF_XZ, py - EYE_FROM_FEET, pz - PLAYER_HALF_XZ],
+    max: [px + PLAYER_HALF_XZ, py + HEAD_ABOVE_EYE, pz + PLAYER_HALF_XZ],
   };
 }
 
@@ -55,17 +60,19 @@ export function moveAxis(
   if (!boxIntersectsSolidBlock(box, grid)) {
     return { hit: false, newPos: next };
   }
-  // collision: snap to nearest block face
   let snapped = pos[axis];
   if (axis === 'x') {
-    snapped = delta > 0 ? Math.floor(next + PLAYER_HALF.x) - PLAYER_HALF.x - EPS
-                        : Math.ceil(next - PLAYER_HALF.x) + PLAYER_HALF.x + EPS;
+    snapped = delta > 0
+      ? Math.floor(next + PLAYER_HALF_XZ) - PLAYER_HALF_XZ - EPS
+      : Math.ceil(next - PLAYER_HALF_XZ) + PLAYER_HALF_XZ + EPS;
   } else if (axis === 'y') {
-    snapped = delta > 0 ? Math.floor(next + PLAYER_HALF.y) - PLAYER_HALF.y - EPS
-                        : Math.ceil(next - PLAYER_HALF.y) + PLAYER_HALF.y + EPS;
+    snapped = delta > 0
+      ? Math.floor(next + HEAD_ABOVE_EYE) - HEAD_ABOVE_EYE - EPS
+      : Math.ceil(next - EYE_FROM_FEET) + EYE_FROM_FEET + EPS;
   } else {
-    snapped = delta > 0 ? Math.floor(next + PLAYER_HALF.z) - PLAYER_HALF.z - EPS
-                        : Math.ceil(next - PLAYER_HALF.z) + PLAYER_HALF.z + EPS;
+    snapped = delta > 0
+      ? Math.floor(next + PLAYER_HALF_XZ) - PLAYER_HALF_XZ - EPS
+      : Math.ceil(next - PLAYER_HALF_XZ) + PLAYER_HALF_XZ + EPS;
   }
   return { hit: true, newPos: snapped };
 }
@@ -76,8 +83,4 @@ export function isOnGround(
 ): boolean {
   const probe = playerBox(pos.x, pos.y - EPS * 4, pos.z);
   return boxIntersectsSolidBlock(probe, grid);
-}
-
-export function pointInBlock(x: number, y: number, z: number) {
-  return { bx: Math.floor(x), by: Math.floor(y), bz: Math.floor(z) };
 }
